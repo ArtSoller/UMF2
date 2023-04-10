@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Header.hpp"
 
 namespace solution
 {
@@ -54,7 +54,7 @@ namespace solution
 
     void Difur::GaMbo()
     {
-        vector<vector<double>> G, M;// локальная матрица жесткости
+        vector<vector<double> > G, M;// локальная матрица жесткости
         vector<double> b;// локальный вектор правой части
         G.resize(3);
         M.resize(3);
@@ -167,14 +167,14 @@ namespace solution
     void Difur::Priblijenie() // приближение
     {
         for (int i = 0; i < Nn; i++)
-            q[i] = 0;
+            q[i] = 3;
     }
 
     void Difur::mult_A(vector<double>& res)
     {
         for (int i = 0; i < Nn; i++)
         {
-            if(i > 0)
+            if(i < 0)
                 res[i] += gl[i] * q[i - 1];
             res[i] += di[i] * q[i];
             if(i < Nn - 1)
@@ -218,7 +218,7 @@ namespace solution
         vector<double> y;
         vector<double> Ax;
         vector<double> qm;
-        int k = 0;//Число итераций
+        int k = 0;          //Число итераций
         y.resize(Nn);
         Ax.resize(Nn);
         qm.resize(Nn);

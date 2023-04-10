@@ -1,12 +1,9 @@
-﻿#include"Header.h"
-using namespace solution;
+﻿#include "Header.hpp"
+#include "Grid.hpp"
+#include "Matrix.hpp"
 
-void showmenu()
-{
-    cout << "1 - построение сетки и вывод координат" << endl
-        << "2 - подготовка начального приближения" << endl
-        << "Не целочисленное значение - выход" << endl;
-}
+using namespace solution;
+using namespace solution1;
 
 int main()
 {
@@ -16,5 +13,11 @@ int main()
     object.Priblijenie();
     object.Iteration();
     //object.Newton();
+
+    // My code
+    
+    Grid myGrid;
+    Matrix A(myGrid);
+    
     return 0;
 }
